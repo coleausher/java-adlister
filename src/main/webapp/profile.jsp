@@ -10,10 +10,12 @@
 <html>
 <head>
     <title>Login</title>
+    <jsp:include page="partials/head.jsp" />
 </head>
 <body>
+<%@ include file="partials/navbar.jsp" %>
 
 <h1>Welcome to your profile</h1>
-
+<jsp:include page="partials/scripts.jsp" />
 </body>
 </html>

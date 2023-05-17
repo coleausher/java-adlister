@@ -10,15 +10,23 @@
 <html>
 <head>
     <title>Login</title>
+    <jsp:include page="partials/head.jsp" />
 </head>
 <body>
+<%@ include file="partials/navbar.jsp" %>
 <%--JSTL--%>
 
+<%--<c:if test=' <%= request.getMethod().equalsIgnoreCase("post")%>'>--%>
 <%--<c:choose>--%>
 <%--    <c:when test="${param.username.equals('admin') && param.password.equals('password')}">--%>
-<%--        <c:redirect url="profile.jsp"/>    <!-- Redirect to the profile page -->--%>
+
+<%--        <c:redirect url="profile.jsp"/>
+                    <%--OR--%>                           <!-- These Redirect to the profile page -->--%>
+<%--        <% response.sendRedirect("profile.jsp");%>--%>
+
 <%--    </c:when>--%>
 <%--</c:choose>--%>
+<%--</c:if>--%>
 
 <%--JSTL--%>
 
@@ -50,6 +58,6 @@ if(username.equals("admin") && password.equals("password")){
 
 
 </form>
-
+<jsp:include page="partials/scripts.jsp" />
 </body>
 </html>

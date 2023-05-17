@@ -12,13 +12,32 @@
     <title>Login</title>
 </head>
 <body>
-<c:choose>
-    <c:when test="${param.username.equals('admin') && param.password.equals('password')}">
-        <c:redirect url="profile.jsp"/>    <!-- Redirect to the profile page -->
-    </c:when>
-</c:choose>
+<%--JSTL--%>
 
-<form action="login.jsp" method="POST">
+<%--<c:choose>--%>
+<%--    <c:when test="${param.username.equals('admin') && param.password.equals('password')}">--%>
+<%--        <c:redirect url="profile.jsp"/>    <!-- Redirect to the profile page -->--%>
+<%--    </c:when>--%>
+<%--</c:choose>--%>
+
+<%--JSTL--%>
+
+
+<%--JAVA--%>
+<%
+    if(request.getMethod().equalsIgnoreCase("post")){
+    String username = request.getParameter("username");
+    String password = request.getParameter("password");
+if(username.equals("admin") && password.equals("password")){
+    response.sendRedirect("profile.jsp");
+}else{
+    response.sendRedirect("login.jsp");
+}
+    }
+%>
+<%--JAVA--%>
+
+<form action="/login.jsp" method="POST">
 
     <label for="username">Username</label>
     <input type="text" name="username" id="username" placeholder="username">

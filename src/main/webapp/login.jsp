@@ -51,11 +51,5 @@ if(username.equals("admin") && password.equals("password")){
 
 </form>
 
-
-
-
-
-
-
 </body>
 </html>

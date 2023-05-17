@@ -51,7 +51,7 @@ request.setAttribute("parks", nationalParks);
 
 <%--   post example     --%>
 <c:choose>
-<%--  The userChoice parameter is being sent   --%>
+<%--  The userChoice parameter is being sent through a form from out post-example  --%>
     <c:when test="${param.userChoice.equals('bubbles')}">
         <h1>ohh look bubbles!</h1>
 

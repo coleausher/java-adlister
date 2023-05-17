@@ -14,14 +14,6 @@
 <body>
 
 
-<c:choose>
-    <c:when test="${param.username = 'admin' && param.password = 'password'}">
-        <c:redirect url="profile.jsp"/>    <!-- Redirect to the profile page -->
-    </c:when>
-    <c:otherwise>
-        <c:redirect url="login.jsp"/>      <!-- Redirect back to the login form -->
-    </c:otherwise>
-</c:choose>
 
 </body>
 </html>

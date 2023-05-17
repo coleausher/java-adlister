@@ -25,7 +25,7 @@
 <%--<% String cohort = request.getParameter("cohort"); %>--%>
 <%--<%= cohort %>--%>
 <%--can use expression language to access request parameters as well--%>
-${param.cohort}
+${param.cohort} is awesome!
 <%--if we want a collection of parameter values, we can use paramValues as well--%>
 <%--${paramValues}--%>
 

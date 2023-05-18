@@ -18,9 +18,9 @@ public class GuessServlet extends HttpServlet {
                 int userGuess = Integer.parseInt(numberParam);
                 if (userGuess >= 1 && userGuess <= 3) {
                     if (userGuess == 2) {
-                        response.sendRedirect("/outcome");
+                        response.sendRedirect("/correct");
                     } else {
-                        response.sendRedirect("/outcome");
+                        response.sendRedirect("/incorrect");
                     }
                 } else {
                     response.sendRedirect("/guess");

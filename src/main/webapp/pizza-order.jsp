@@ -12,8 +12,8 @@
 </head>
 <body>
 <h1>Pizza Order Form</h1>
-<form action="PizzaOrderServlet" method="POST">
-  <label for="crustType">Crust Type:</label>
+<form action="pizza-order" method="POST">
+  <%--@declare id="toppings"--%><label for="crustType">Crust Type:</label>
   <select name="crustType" id="crustType">
     <option value="thin">Thin Crust</option>
     <option value="thick">Thick Crust</option>
@@ -41,10 +41,18 @@
   <br><br>
 
   <label for="toppings">Toppings:</label>
-  <input type="checkbox" name="toppings" value="pepperoni"> Pepperoni
-  <input type="checkbox" name="toppings" value="mushrooms"> Mushrooms
-  <input type="checkbox" name="toppings" value="onions"> Onions
-  <input type="checkbox" name="toppings" value="sausage"> Sausage
+    <label>
+      <input type="checkbox" name="toppings" value="pepperoni">
+    </label> Pepperoni
+    <label>
+      <input type="checkbox" name="toppings" value="mushrooms">
+    </label> Mushrooms
+    <label>
+      <input type="checkbox" name="toppings" value="onions">
+    </label> Onions
+    <label>
+      <input type="checkbox" name="toppings" value="sausage">
+    </label> Sausage
 
   <br><br>
 

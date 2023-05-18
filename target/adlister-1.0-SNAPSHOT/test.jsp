@@ -64,11 +64,19 @@
 
 
 
+
 <%--&lt;%&ndash;   post example     &ndash;%&gt;--%>
 <%--<c:choose>--%>
 <%--&lt;%&ndash;  The userChoice parameter is being sent through a form from out post-example  &ndash;%&gt;--%>
 <%--    <c:when test="${param.userChoice.equals('bubbles')}">--%>
 <%--        <h1>ohh look bubbles!</h1>--%>
+
+<%--   post example     --%>
+<c:choose>
+<%--  The userChoice parameter is being sent through a form from out post-example  --%>
+    <c:when test="${param.userChoice.equals('bubbles')}">
+        <h1>ohh look bubbles!</h1>
+
 
 <%--    </c:when>--%>
 <%--    <c:otherwise>--%>

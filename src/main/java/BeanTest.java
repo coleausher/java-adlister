@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class BeanTest {
     public static void main(String[] args) {
@@ -15,7 +16,7 @@ public class BeanTest {
         Quote quote2 = new Quote(2, author2, album2.toString());
 
         // Create an ArrayList to store Quote instances
-        ArrayList<Quote> quotes = new ArrayList<>();
+        List<Quote> quotes = new ArrayList<>();
 
 
         // Add the quotes to the ArrayList

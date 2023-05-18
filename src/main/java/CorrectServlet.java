@@ -5,10 +5,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/correct")
+@WebServlet(name = "CorrectServlet", urlPatterns = "/correct")
 public class CorrectServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("message", "You Won!");
+        request.setAttribute("result", "You Won!");
         request.getRequestDispatcher("/outcome.jsp").forward(request, response);
     }
 }

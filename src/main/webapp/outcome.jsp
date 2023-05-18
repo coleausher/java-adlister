@@ -4,6 +4,12 @@
     <title>Outcome</title>
 </head>
 <body>
-<h1><%= request.getAttribute("message") %></h1>
+
+<h1><%= request.getAttribute("result") %></h1>
+
+<%--OR--%>
+
+<%--<h1>${result}</h1>--%>
+
 </body>
 </html>

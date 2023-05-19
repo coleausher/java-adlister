@@ -18,6 +18,9 @@
 
 
 <form action="/products" method="POST">
+    <label for="productId"></label>
+    <input type="text" name="productId" id="productId">
+
     <label for="name">Name of Product: </label>
     <input type="text" name="name" id="name">
 

@@ -6,6 +6,7 @@ private static ProductsDao productsDao;
 //private static UsersDao usersDao;
 
      public static ProductsDao getProductsDao(){
+         // instantiate the ListProducts class, which will run the constructor method to populate our array list pf products
          if(productsDao == null){
              productsDao = new ListProducts();
          }

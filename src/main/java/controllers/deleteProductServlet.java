@@ -1,5 +1,7 @@
 package controllers;
 
+import dao.DaoFactory;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,8 +13,18 @@ import java.io.IOException;
 public class deleteProductServlet extends HttpServlet {
 
 
-        public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        @Override
+        protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+                DaoFactory.getProductsDao().delete(Integer.parseInt(req.getParameter("productId")));
 
+                resp.sendRedirect("/products");
         }
-
 }
+
+
+
+
+
+
+
+

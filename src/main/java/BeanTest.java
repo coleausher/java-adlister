@@ -8,12 +8,12 @@ public class BeanTest {
         Album album2 = new Album();
 
         // Create instances of Author
-        Author author1 = new Author(1, "Author 1");
-        Author author2 = new Author(2, "Author 2");
+        Author author1 = new Author(1, "Amelia Earhart");
+        Author author2 = new Author(2, "Woody Allen");
 
         // Create instances of Quote with associated Author and Album
-        Quote quote1 = new Quote(1, author1, album1.toString());
-        Quote quote2 = new Quote(2, author2, album2.toString());
+        Quote quote1 = new Quote(author1, "The most difficult thing is the decision to act, the rest is merely tenacity.");
+        Quote quote2 = new Quote(author2, "Eighty percent of success is showing up.");
 
         // Create an ArrayList to store Quote instances
         List<Quote> quotes = new ArrayList<>();

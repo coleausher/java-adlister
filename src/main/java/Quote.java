@@ -1,26 +1,17 @@
 public class Quote{
 
 
-    private int id;
+
     private String Quote;
     private String author;
 
 
-    public Quote(int id, Author author, String Quote) {
-        this.id = id;
+    public Quote( Author author, String Quote) {
         this.Quote = Quote;
         this.author = String.valueOf(author);
         }
 
 // Getters and setters
-
-public int getId() {
-        return id;
-        }
-
-public void setId(int id) {
-        this.id = id;
-        }
 
 public String getQuote() {
         return Quote;
@@ -37,4 +28,6 @@ public String getAuthor() {
 public void setAuthor(Author author) {
         this.author = String.valueOf(author);
         }
+
+
         }

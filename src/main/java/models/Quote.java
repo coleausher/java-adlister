@@ -1,24 +1,28 @@
-public class Quote{
+package models;
 
+import models.Author;
 
+import java.io.Serializable;
 
-    private String Quote;
+public class Quote implements Serializable {
+
+    private String content;
     private String author;
 
 
-    public Quote( Author author, String Quote) {
-        this.Quote = Quote;
+    public Quote(Author author, String content) {
+        this.content = content;
         this.author = String.valueOf(author);
         }
 
 // Getters and setters
 
 public String getQuote() {
-        return Quote;
+        return content;
         }
 
 public void setQuote(String Quote) {
-        this.Quote = Quote;
+        this.content = content;
         }
 
 public String getAuthor() {

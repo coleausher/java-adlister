@@ -9,8 +9,8 @@
     <jsp:include page="../partials/navbar.jsp" />
 
     <div class="container">
-        <h1>Welcome your Profile <%= session.getAttribute("user") %></h1>
-<%--        ${sessionScope.username}--%>
+        <h1>Welcome your Profile ${sessionScope.user} </h1>
+<%--    <%= session.getAttribute("user") %>    --%>
 
         <form action="/logout" method="POST">
 

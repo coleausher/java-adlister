@@ -5,6 +5,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "controllers.LoginServlet", urlPatterns = "/login")
@@ -18,8 +19,13 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
         boolean validAttempt = username.equals("admin") && password.equals("password");
 
+        // create new session names session
+        HttpSession session = request.getSession();
+
         if (validAttempt) {
-//            request.getSession().setAttribute("user", username);
+            // set attribute
+            session.setAttribute("user", username);
+
             response.sendRedirect("/profile");
         } else {
             response.sendRedirect("/login");

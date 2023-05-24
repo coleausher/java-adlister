@@ -1,69 +1,61 @@
 package com.codeup.adlister.dao;
 
-
 import com.codeup.adlister.models.User;
+import com.mysql.cj.jdbc.Driver;
 import dao.Config;
 
 import java.sql.*;
 
 public class MySQLUsersDao implements Users {
+
+    // 1. Make a connection object and establish the connection
     private Connection connection;
 
     public MySQLUsersDao(Config config) {
         try {
-            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-            connection = DriverManager.getConnection(
-                    config.getUrl(),
-                    config.getUser(),
-                    config.getPassword()
-            );
+            DriverManager.registerDriver(new Driver());
+            connection = DriverManager.getConnection(config.getUrl(), config.getUser(), config.getPassword());
         } catch (SQLException e) {
-            throw new RuntimeException("Error connecting to the database", e);
+            throw new RuntimeException("Error connecting to database!", e);
         }
     }
-
-
 
     @Override
     public User findByUsername(String username) {
         try {
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE username = ?");
-            statement.setString(1, username);
-            ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-                return extractUser(resultSet);
-            }
+            String findUsernameQuery = "SELECT * FROM users WHERE username = ?";
+            PreparedStatement stmt = connection.prepareStatement(findUsernameQuery);
+            stmt.setString(1, username);
+
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            User newUser = new User(rs.getLong("id"), rs.getString("username"), rs.getString("email"), rs.getString("password"));
+            return newUser;
         } catch (SQLException e) {
-            throw new RuntimeException("Error retrieving user by username", e);
+            throw new RuntimeException("Could not find user!");
         }
-        return null;
     }
 
     @Override
     public Long insert(User user) {
         try {
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO users (username, password) VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS);
-            statement.setString(1, user.getUsername());
-            statement.setString(2, user.getPassword());
-            int affectedRows = statement.executeUpdate();
-            if (affectedRows == 0) {
-                throw new SQLException("Creating user failed, no rows affected.");
-            }
-            ResultSet generatedKeys = statement.getGeneratedKeys();
-            if (generatedKeys.next()) {
-                return generatedKeys.getLong(1);
-            } else {
-                throw new SQLException("Creating user failed, no ID obtained.");
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException("Error creating a new user", e);
-        }
-    }
+            // Create query string
+            String insertUserQuery = "INSERT INTO users(username, email, password) VALUES(?, ?, ?)";
+            PreparedStatement stmt = connection.prepareStatement(insertUserQuery, Statement.RETURN_GENERATED_KEYS);
 
-    private User extractUser(ResultSet resultSet) throws SQLException {
-        long id = resultSet.getLong("id");
-        String username = resultSet.getString("username");
-        String password = resultSet.getString("password");
-        return new User(id, username, password);
+            // Set the values of the ?'s
+            stmt.setString(1, user.getUsername());
+            stmt.setString(2, user.getEmail());
+            stmt.setString(3, user.getPassword());
+
+            stmt.executeUpdate();
+
+            ResultSet rs = stmt.getGeneratedKeys();
+            rs.next();
+            return rs.getLong(1);
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Error adding user to database!");
+        }
     }
 }

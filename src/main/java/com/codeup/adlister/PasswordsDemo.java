@@ -37,6 +37,7 @@ public class PasswordsDemo {
         System.out.println(user.getPassword());
         System.out.println(userAttemptingToLogin.getPassword());
 
+        // set a boolean variable to check if the passwords match
         boolean passwordsMatch = BCrypt.checkpw(userAttemptingToLogin.getPassword(), user.getPassword());
 
 
